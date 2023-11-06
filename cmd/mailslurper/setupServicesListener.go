@@ -34,8 +34,8 @@ func setupServicesListener() {
 		ServerVersion: SERVER_VERSION,
 	}
 
-	service = echo.New()
-	service.HideBanner = true
+	service := admin.Group("/api")
+	// service.HideBanner = true
 
 	if config.AuthenticationScheme != authscheme.NONE {
 		middlewares = append(middlewares, serviceAuthorization)
@@ -63,19 +63,19 @@ func setupServicesListener() {
 		service.DELETE("/logout", serviceController.Logout)
 	}
 
-	go func() {
-		var err error
+	// go func() {
+	// 	var err error
 
-		if config.IsServiceSSL() {
-			err = service.StartTLS(config.GetFullServiceAppAddress(), config.CertFile, config.KeyFile)
-		} else {
-			err = service.Start(config.GetFullServiceAppAddress())
-		}
+	// 	if config.IsServiceSSL() {
+	// 		err = service.StartTLS(config.GetFullServiceAppAddress(), config.CertFile, config.KeyFile)
+	// 	} else {
+	// 		err = service.Start(config.GetFullServiceAppAddress())
+	// 	}
 
-		if err != nil {
-			logger.WithError(err).Info("Shutting down HTTP service listener")
-		} else {
-			logger.Infof("Service listener running on %s", config.GetFullServiceAppAddress())
-		}
-	}()
+	// 	if err != nil {
+	// 		logger.WithError(err).Info("Shutting down HTTP service listener")
+	// 	} else {
+	// 		logger.Infof("Service listener running on %s", config.GetFullServiceAppAddress())
+	// 	}
+	// }()
 }

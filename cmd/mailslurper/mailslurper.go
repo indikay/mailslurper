@@ -43,7 +43,8 @@ var connectionManager *mailslurper.ConnectionManager
 var cacheService *cache.Cache
 
 var admin *echo.Echo
-var service *echo.Echo
+
+// var service *echo.Echo
 
 var logFormat = flag.String("logformat", "simple", "Format for logging. 'simple' or 'json'.")
 var logLevel = flag.String("loglevel", "info", "Level of logs to write. Valid values are 'debug', 'info', or 'error'.")
@@ -95,7 +96,7 @@ func main() {
 		logger.Fatalf("Error shutting down admin listener: %s", err.Error())
 	}
 
-	if err = service.Shutdown(ctx); err != nil {
-		logger.Fatalf("Error shutting down service listener: %s", err.Error())
-	}
+	// if err = service.Shutdown(ctx); err != nil {
+	// 	logger.Fatalf("Error shutting down service listener: %s", err.Error())
+	// }
 }

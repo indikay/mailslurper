@@ -3,8 +3,8 @@
 	"wwwPort": 8080,
 	"wwwPublicURL": "",
 	"serviceAddress": "localhost",
-	"servicePort": 8085,
-	"servicePublicURL": "",
+	"servicePort": 8080,
+	"servicePublicURL": "http://localhost:8080/api",
 	"smtpAddress": "localhost",
 	"smtpPort": 2500,
 	"dbEngine": "SQLite",
@@ -20,8 +20,8 @@
 	"adminKeyFile": "",
 	"adminCertFile": "",
 	"authenticationScheme": "",
-	"authSecret": "",
-	"authSalt": "",
+	"authSecret": "yx4v7sV86Eh3eiGspUuogd1gGsQ08BNz",
+  "authSalt": "hYNsqoWAwGk5ChiGMUWPgLvlzehiF9hp",
 	"authTimeoutInMinutes": 120,
 	"credentials": {}
 }
